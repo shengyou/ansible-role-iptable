@@ -1,0 +1,11 @@
+---
+
+
+# - import_tasks: "CentOS.yml"
+  # when: ansible_distribution == "Ubuntu" or ansible_distribution == "CentOS"
+
+- include_tasks: "{{ ansible_distribution }}.yml"
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "CentOS"
+  tags:
+    - install
+    - setup

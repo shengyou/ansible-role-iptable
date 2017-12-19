@@ -1,0 +1,47 @@
+---
+
+- name: install iptables
+  apt:
+    name: iptables
+    state: present
+    update_cache: yes
+  tags:
+    - install
+
+- block:
+  - name: Copy custom iptalbes rules
+    copy:
+      src: "{{ custom_iptalbes_rules }}"
+      dest: "/etc/iptables.firewall.rules"
+      owner: root
+      group: root
+      backup: yes
+    when: custom_iptalbes_rules is defined
+
+  - name: Set iptables-restore when server boot
+    copy:
+      src: iptables-restore
+      dest: /etc/network/if-pre-up.d/iptables-restore
+      group: root
+      owner: root
+      mode: "o+x"
+
+  - name: Copy custom ip6tables rules
+    copy:
+      src: "{{ custom_ip6talbes_rules }}"
+      dest: /etc/ip6tables.firewall.rules
+      owner: root
+      group: root
+      backup: yes
+    when: custom_ip6talbes_rules is defined
+
+  - name: Set ip6tables-restore when server boot
+    copy:
+      src: ip6tables-restore
+      dest: /etc/network/if-pre-up.d/ip6tables-restore
+      group: root
+      owner: root
+      mode: "o+x"
+
+  tags:
+    - setup
