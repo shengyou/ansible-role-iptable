@@ -1,0 +1,23 @@
+---
+
+
+- block:
+  - name: Set custom iptalbes rules
+    copy:
+      src: "{{ custom_iptalbes_rules }}"
+      dest: "/etc/sysconfig/iptables"
+      owner: root
+      group: root
+      backup: yes
+    when: custom_iptalbes_rules is defined
+
+  - name: Set custom ip6tables rules
+    copy:
+      src: "{{ custom_ip6talbes_rules }}"
+      dest: "/etc/sysconfig/ip6tables"
+      owner: root
+      group: root
+      backup: yes
+    when: custom_ip6talbes_rules is defined
+  tags:
+    - setup
