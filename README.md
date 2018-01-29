@@ -1,5 +1,5 @@
 
-Install iptables
+Install iptables [![Build Status](https://travis-ci.org/shengyou/ansible-role-iptable.svg?branch=master)](https://travis-ci.org/shengyou/ansible-role-iptable)
 =========
 
 安裝 iptables 並設置自訂的 rules。
