@@ -18,6 +18,7 @@
       group: root
       owner: root
       mode: "o+x"
+    when: ansible_virtualization_type != "docker"
 
   - name: Copy custom ip6tables rules
     copy:
@@ -35,6 +36,7 @@
       group: root
       owner: root
       mode: "o+x"
+    when: ansible_virtualization_type != "docker"
 
   tags:
     - setup

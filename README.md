@@ -34,7 +34,7 @@ Example Playbook
 
 ```
 - name: install_iptables.yml
-  hosts: myhost
+  hosts: your_host
   gather_facts: yes
   become: yes
 
@@ -43,15 +43,10 @@ Example Playbook
    - custom_ip6talbes_rules: /path/to/ip6tables_rules_filename.conf
 
   roles:
-    - install_iptables
+    - ansible-role-iptables
 ```
 
 License
 -------
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT
