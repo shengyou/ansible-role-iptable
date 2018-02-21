@@ -22,7 +22,7 @@ script:
   - ${PWD}/tests/test.sh
 
   # my test code
-  - 'docker exec ${container_id} ls /usr/sbin/nginx | grep "/usr/sbin/nginx"'
+  - 'docker exec ${container_id} ls /sbin/iptables | grep "/sbin/iptables"'
 
 # notifications:
   # webhooks: https://galaxy.ansible.com/api/v1/notifications/
