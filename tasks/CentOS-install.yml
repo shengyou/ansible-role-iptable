@@ -24,12 +24,27 @@
 
   - name: mask firewalld
     command: systemctl mask firewalld
+    args:
+      creates: /etc/iptables_installed
+    register: mask_firewalld
 
   - name: enable iptables
     command: systemctl enable iptables
+    args:
+      creates: /etc/iptables_installed
+    register: enable_iptables
 
   - name: enable ip6tables
     command: systemctl enable ip6tables
+    args:
+      creates: /etc/iptables_installed
+    register: enable_ip6tables
+
+  - name: create /etc/iptables_installed
+    file:
+      path: /etc/iptables_installed
+      state: touch
+    when: mask_firewalld.changed and enable_iptables.changed and enable_iptables.changed
 
   when: ansible_distribution_major_version >= "7"
   tags:
