@@ -11,15 +11,6 @@
       backup: yes
     when: custom_iptalbes_rules is defined
 
-  - name: Set iptables-restore when server boot
-    copy:
-      src: iptables-restore
-      dest: /etc/network/if-pre-up.d/iptables-restore
-      group: root
-      owner: root
-      mode: "o+x"
-    when: ansible_virtualization_type != "docker"
-
   - name: Copy custom ip6tables rules
     copy:
       src: "{{ custom_ip6talbes_rules }}"
@@ -29,10 +20,10 @@
       backup: yes
     when: custom_ip6talbes_rules is defined
 
-  - name: Set ip6tables-restore when server boot
+  - name: Set iptables-restore when server boot
     copy:
-      src: ip6tables-restore
-      dest: /etc/network/if-pre-up.d/ip6tables-restore
+      src: iptables-restore
+      dest: /etc/network/if-pre-up.d/firewall
       group: root
       owner: root
       mode: "o+x"
