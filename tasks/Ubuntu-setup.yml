@@ -20,9 +20,9 @@
       backup: yes
     when: custom_ip6talbes_rules is defined
 
-  - name: Set iptables-restore when server boot
+  - name: Set iptables-restore (firewall) when server boot
     copy:
-      src: iptables-restore
+      src: firewall
       dest: /etc/network/if-pre-up.d/firewall
       group: root
       owner: root
