@@ -1,0 +1,4 @@
+
+required_vars:
+  - custom_iptalbes_rules
+  - custom_ip6talbes_rules

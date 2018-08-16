@@ -16,7 +16,7 @@ Requirements
 Role Variables
 --------------
 
-以下 Variables 非必填項目，想要設定自訂的防火牆 rules 才需要設置。
+以下 Variables 為必填項目，請指定防火牆 rules 的檔案位置。
 
 使用方式請參考範例。
 

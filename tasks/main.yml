@@ -7,6 +7,16 @@
   tags:
     - install
 
+
+- name: check variables
+  fail:
+    msg: "{{ item }} is not defined"
+  when: "{{ item }} is not defined"
+  with_items:
+    - "{{ required_vars }}"
+  tags:
+    - setup
+
 - include_tasks: "{{ ansible_distribution }}-setup.yml"
   when: ansible_distribution == "Ubuntu" or ansible_distribution == "CentOS"
   tags:
