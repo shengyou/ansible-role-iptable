@@ -1,0 +1,8 @@
+*filter
+
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A OUTPUT -j ACCEPT
+-A INPUT -j ACCEPT
+
+COMMIT
