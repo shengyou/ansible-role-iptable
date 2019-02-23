@@ -20,8 +20,8 @@ Role Variables
 
 使用方式請參考範例。
 
-* custom_iptalbes_rules
-* custom_ip6talbes_rules
+* custom_iptables_rules
+* custom_ip6tables_rules
 
 
 Dependencies
@@ -39,8 +39,8 @@ Example Playbook
   become: yes
 
   vars:
-   - custom_iptalbes_rules: /path/to/iptables_rules_filename.conf
-   - custom_ip6talbes_rules: /path/to/ip6tables_rules_filename.conf
+   - custom_iptables_rules: /path/to/iptables_rules_filename.conf
+   - custom_ip6tables_rules: /path/to/ip6tables_rules_filename.conf
 
   roles:
     - ansible-role-iptables

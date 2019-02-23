@@ -3,8 +3,8 @@
 - hosts: all
 
   vars:
-    custom_iptalbes_rules: "ip4.test"
-    custom_ip6talbes_rules: "ip6.test"
+    custom_iptables_rules: "ip4.test"
+    custom_ip6tables_rules: "ip6.test"
 
   roles:
     - role_under_test
